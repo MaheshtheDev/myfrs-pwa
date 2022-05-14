@@ -3,6 +3,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .active-link {
+    @apply text-[#C0FF0D] px-2 flex flex-col;
+  }
+  .not-active-link {
+    @apply text-[#757575] px-2 flex flex-col;
+  }
+}
 /*
 html,
 body {
