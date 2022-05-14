@@ -10,6 +10,7 @@ const Home: NextPage = () => {
         <title>myFRS - Home</title>
         <meta name="description" content="my FRS app" />
         <link rel="icon" href="/logo.svg" />
+        <meta name="theme-color" content="#000000" />
       </Head>
       <h1 className="text-[#C0FF0D] font-semibold p-4">myFRS</h1>
       <main className="flex-grow"></main>
