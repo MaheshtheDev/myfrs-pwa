@@ -1,12 +1,12 @@
 {
-    "theme_color": "#f69435",
+    "theme_color": "#100F0D",
     "background_color": "#100F0D",
-    "display": "fullscreen",
+    "display": "browser",
     "scope": "/",
     "start_url": "/",
     "name": "myFRS",
     "short_name": "myFRS",
-    "description": "Fuel and Retail Store Management System",
+    "description": "all in one FRS management",
     "icons": [
         {
             "src": "/icon-192x192.png",
