@@ -17,15 +17,15 @@ const Home: NextPage = () => {
       <footer className="bottom-0 bg-[#161616] p-4 w-screen">
         <nav className="list-none font-medium flex pb-4 justify-around text-xs">
           <li className="text-[#C0FF0D] px-2 flex flex-col">
-            <Image src="/images/home.svg" height={35} width={35} />
+            <Image src="/images/home.svg" height={30} width={30} />
             <p className="pt-1">Home</p>
           </li>
           <li className="text-[#757575] px-2 flex flex-col">
-            <Image src="/images/add.svg" height={35} width={35} />
+            <Image src="/images/add.svg" height={30} width={30} />
             <p className="pt-1">Add Load</p>
           </li>
           <li className="text-[#757575] px-2 flex flex-col">
-            <Image src="/images/stats.svg" height={35} width={35} />
+            <Image src="/images/stats.svg" height={30} width={30} />
             <p className="pt-1">Stats</p>
           </li>
         </nav>
