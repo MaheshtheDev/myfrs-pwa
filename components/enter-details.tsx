@@ -71,8 +71,8 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
               />
             </div>
             <div className="flex justify-between items-center p-2">
-              <label className="text-base">
-                Petrol Selling Price<span className="text-sm"> (Today)</span>
+              <label className="text-base w-fit">
+                Petrol Selling Price<div className="text-sm"> (Today)</div>
               </label>
               <input
                 className="input-details"
@@ -84,7 +84,7 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
             <div className="flex justify-between items-center p-2">
               <label className="text-base">
                 Diesel Selling Price
-                <span className="text-sm"> (Today)</span>
+                <div className="text-sm"> (Today)</div>
               </label>
               <input
                 className="input-details"
