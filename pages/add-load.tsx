@@ -5,7 +5,7 @@ export default function AddLoad() {
         Load Report
       </h1>
       <main className="flex-grow text-white">
-        <section className="bg-[#1E1E1E] p-3 rounded-sm font-medium">
+        <section className="bg-[#1E1E1E] p-3 rounded-md font-medium">
           <div>
             <p className="text-[#C1FF12] font-semibold pb-2">Load Details</p>
             <div className="flex justify-between items-center p-2">

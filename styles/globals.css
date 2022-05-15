@@ -12,7 +12,7 @@
     @apply text-[#757575] px-2 flex flex-col;
   }
   .input-details {
-    @apply p-1 outline-none rounded-full h-full bg-[#C4C4C4] text-black;
+    @apply p-1 w-1/2 outline-none rounded-full h-full bg-[#C4C4C4] text-black;
   }
 }
 
