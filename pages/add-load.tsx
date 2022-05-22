@@ -25,7 +25,7 @@ export default function AddLoad() {
       {!isReportGenerated ? (
         <EnterDetails setLoadDetails={setLoadDetails} />
       ) : (
-        <LoadReport />
+        <LoadReport loadDetails={loadDetails}/>
       )}
       
     </div>

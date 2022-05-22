@@ -5,12 +5,12 @@ import { LoadDetails } from "./types";
 export default function EnterDetails(props: { setLoadDetails: any }) {
   const [loadDetails, setLoadDetailsLocally] = useState({
     orderedDate: new Date().toISOString().split("T")[0],
-    orderedPetrol: 0,
-    orderedDiesel: 0,
-    costOfPetrolKL: 0,
-    costOfDieselKL: 0,
-    sellingPriceOfPetrol: 0,
-    sellingPriceOfDiesel: 0,
+    orderedPetrol: 4000,
+    orderedDiesel: 8000,
+    costOfPetrolKL: 117392.0309,
+    costOfDieselKL: 104375.1172,
+    sellingPriceOfPetrol: 120.84,
+    sellingPriceOfDiesel: 106.48,
   } as LoadDetails);
   const onSubmit = (event: any) => {
     props.setLoadDetails(loadDetails);

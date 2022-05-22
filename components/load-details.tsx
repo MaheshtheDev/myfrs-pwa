@@ -62,7 +62,7 @@ export default function LoadResult(props: { loadDetails: LoadDetails }) {
       Math.round((props.loadDetails.costOfDieselKL / 1000) * 100) / 100;
     const cPL =
       Math.round((props.loadDetails.costOfPetrolKL / 1000) * 100) / 100;
-    setLoadDate(new Date(props.loadDetails.orderedDate).toLocaleDateString());
+    //setLoadDate(new Date(props.loadDetails.orderedDate).toLocaleDateString());
     setCompleteLoadDetails({
       orderedPetrol: props.loadDetails.orderedPetrol,
       orderedDiesel: props.loadDetails.orderedDiesel,
@@ -70,14 +70,14 @@ export default function LoadResult(props: { loadDetails: LoadDetails }) {
       costOfPetrolL: cPL,
       sellingPriceOfDiesel: props.loadDetails.sellingPriceOfDiesel,
       sellingPriceOfPetrol: props.loadDetails.sellingPriceOfPetrol,
-      marginOfDiesel:
-        Math.round((props.loadDetails.sellingPriceOfDiesel - cDL) * 100) / 100,
-      marginOfPetrol:
-        Math.round((props.loadDetails.sellingPriceOfPetrol - cPL) * 100) / 100,
+      marginOfDiesel: (props.loadDetails.sellingPriceOfDiesel - cDL),
+      marginOfPetrol: (props.loadDetails.sellingPriceOfPetrol - cPL),
       totalCost:
         props.loadDetails.orderedPetrol * cPL +
         props.loadDetails.orderedDiesel * cDL,
     });
+    console.log(completeLoadDetails.marginOfDiesel.toFixed(2));
+    
   }, [props]);
 
   return (
@@ -107,14 +107,14 @@ export default function LoadResult(props: { loadDetails: LoadDetails }) {
               <p className="pr-2">Petrol Margin</p>
               <img src="/images/arrow.png" height="5px" width={20} />
               <span className="ml-2 px-2 bg-[#C0FF0D] rounded-full">
-                {completeLoadDetails.marginOfPetrol} Rs/-
+                {completeLoadDetails.marginOfPetrol.toFixed(2)} Rs/-
               </span>
             </div>
             <div className="flex pt-2">
               <p className="pr-2">Diesel Margin</p>
               <img src="/images/arrow.png" height={10} width={20} />
               <span className="ml-2 px-2 bg-[#C0FF0D] rounded-full">
-                {completeLoadDetails.marginOfDiesel} Rs/-
+                {completeLoadDetails.marginOfDiesel.toFixed(2)} Rs/-
               </span>
             </div>
           </div>
