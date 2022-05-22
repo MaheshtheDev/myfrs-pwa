@@ -9,27 +9,80 @@ export default function LoadReport(props: { loadDetails: LoadDetails }) {
   );
 
   const wrapperRef = useRef<HTMLDivElement | null>(null);
-  
+
+  const snapshotCreator = () => {
+    return new Promise((resolve, reject) => {
+      try {
+        const scale = window.devicePixelRatio;
+        const element = wrapperRef.current; // You can use element's ID or Class here
+        if (element) {
+          domtoimage
+            .toBlob(element, {
+              height: 650,
+              width: 750,
+              style: {
+                transform: "scale(" + scale + ")",
+                transformOrigin: "top left",
+                width: "500px",
+                height: "500px",
+              },
+            })
+            .then((blob) => {
+              resolve(blob);
+            });
+        }
+      } catch (e) {
+        reject(e);
+      }
+    });
+  };
+
   const copyImageFirefox = () => {
     const scale = window.devicePixelRatio;
-
+    const isSafari = /^((?!chrome|android).)*safari/i.test(
+      navigator?.userAgent
+    );
     if (wrapperRef.current)
-      domtoimage
-        .toBlob(wrapperRef.current, {
-          height: 650,
-          width: 750,
-          style: {
-            transform: "scale(" + scale + ")",
-            transformOrigin: "top left",
-            width: "500px",
-            height: "500px",
-          },
-        })
-        .then(async (data: any) => {
-          data.arrayBuffer();
-          navigator.clipboard.write([new ClipboardItem({ [data.type]: data })]);
-          toast.success("Image copied to clipboard");
-        });
+      if (isSafari) {
+        navigator.clipboard
+          .write([
+            new ClipboardItem({
+              "image/png": new Promise(async (resolve, reject) => {
+                try {
+                  await snapshotCreator();
+                  const blob: any = await snapshotCreator();
+                  resolve(new Blob([blob], { type: "image/png" }));
+                } catch (err) {
+                  reject(err);
+                }
+              }),
+            }),
+          ])
+          .then(() => toast.success("Image copied to clipboard"))
+          .catch((err) =>
+            // Error
+            toast.success(err)
+          );
+      } else {
+        domtoimage
+          .toBlob(wrapperRef.current, {
+            height: 650,
+            width: 750,
+            style: {
+              transform: "scale(" + scale + ")",
+              transformOrigin: "top left",
+              width: "500px",
+              height: "500px",
+            },
+          })
+          .then(async (data: any) => {
+            data.arrayBuffer();
+            navigator.clipboard.write([
+              new ClipboardItem({ [data.type]: data }),
+            ]);
+            toast.success("Image copied to clipboard");
+          });
+      }
   };
   useEffect(() => {
     const cDL =
@@ -205,7 +258,10 @@ export default function LoadReport(props: { loadDetails: LoadDetails }) {
         </div>
       </div>
       <div className="flex justify-around mt-2">
-        <button onClick={copyImageFirefox} className="bg-[#C0FF0D]/75 w-1/2 rounded-md text-black font-semibold py-1 mr-2">
+        <button
+          onClick={copyImageFirefox}
+          className="bg-[#C0FF0D]/75 w-1/2 rounded-md text-black font-semibold py-1 mr-2"
+        >
           Copy to Clipboard
         </button>
         <button className="bg-[#C0FF0D]/75 w-1/2 rounded-md text-black font-semibold py-1">
