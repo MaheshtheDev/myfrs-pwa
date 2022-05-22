@@ -98,7 +98,7 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
                 <img
                   src="/images/rupee.png"
                   alt=""
-                  className="absolute w-5 top-2 left-1"
+                  className="absolute w-6 top-1 left-1"
                 />
               </div>
             </div>
@@ -123,7 +123,7 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
                 <img
                   src="/images/rupee.png"
                   alt=""
-                  className="absolute w-5 top-1 left-1"
+                  className="absolute w-6 top-1 left-1"
                 />
               </div>
             </div>
@@ -148,7 +148,7 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
                 <img
                   src="/images/rupee.png"
                   alt=""
-                  className="absolute w-5 top-1 left-1"
+                  className="absolute w-6 top-1 left-1"
                 />
               </div>
             </div>
@@ -174,7 +174,7 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
                 <img
                   src="/images/rupee.png"
                   alt=""
-                  className="absolute w-5 top-1 left-1"
+                  className="absolute w-6 top-1 left-1"
                 />
               </div>
             </div>
