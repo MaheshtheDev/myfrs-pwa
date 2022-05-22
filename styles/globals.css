@@ -14,6 +14,9 @@
   .input-details {
     @apply p-1 w-full outline-none pl-7 rounded-full h-full bg-[#C4C4C4] text-black;
   }
+  .rupee-icon {
+    @apply absolute w-6 top-1 left-1;
+  }
 }
 
 input::-webkit-outer-spin-button,

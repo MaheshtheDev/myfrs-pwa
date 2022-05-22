@@ -1,8 +1,6 @@
 import { useRef, useState } from "react";
 import { LoadDetails } from "./types";
-//import domtoimage from "dom-to-image";
-//import { LoadDetails } from "../types";
-//import toast, { Toaster } from "react-hot-toast";
+
 
 export default function EnterDetails(props: { setLoadDetails: any }) {
   const [loadDetails, setLoadDetailsLocally] = useState({
@@ -16,7 +14,6 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
   } as LoadDetails);
   const onSubmit = (event: any) => {
     props.setLoadDetails(loadDetails);
-    //  toast.success("Report Generated!");
   };
 
   return (
@@ -24,6 +21,7 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
       <h1 className="text-[#90BF0A] font-bold tracking-wide uppercase text-xl flex justify-center pb-3">
         Load Report
       </h1>
+      
       <main className="flex-grow text-white">
         <section className="bg-[#1E1E1E] p-3 rounded-md font-medium">
           <div>
@@ -44,11 +42,7 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
                     })
                   }
                 />
-                <img
-                  src="/images/rupee.png"
-                  alt=""
-                  className="absolute w-5 top-1 left-1"
-                />
+                <img src="/images/rupee.png" alt="" className="rupee-icon" />
               </div>
             </div>
             <div className="flex justify-between items-center p-2">
@@ -67,11 +61,7 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
                     })
                   }
                 />
-                <img
-                  src="/images/rupee.png"
-                  alt=""
-                  className="absolute w-5 top-1 left-1"
-                />
+                <img src="/images/rupee.png" alt="" className="rupee-icon" />
               </div>
             </div>
           </div>
@@ -95,11 +85,7 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
                     })
                   }
                 />
-                <img
-                  src="/images/rupee.png"
-                  alt=""
-                  className="absolute w-6 top-1 left-1"
-                />
+                <img src="/images/rupee.png" alt="" className="rupee-icon" />
               </div>
             </div>
             <div className="flex justify-between items-center p-2">
@@ -120,11 +106,7 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
                     })
                   }
                 />
-                <img
-                  src="/images/rupee.png"
-                  alt=""
-                  className="absolute w-6 top-1 left-1"
-                />
+                <img src="/images/rupee.png" alt="" className="rupee-icon" />
               </div>
             </div>
             <div className="flex justify-between items-center p-2">
@@ -145,11 +127,7 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
                     })
                   }
                 />
-                <img
-                  src="/images/rupee.png"
-                  alt=""
-                  className="absolute w-6 top-1 left-1"
-                />
+                <img src="/images/rupee.png" alt="" className="rupee-icon" />
               </div>
             </div>
             <div className="flex justify-between items-center p-2">
@@ -163,19 +141,15 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
                   type="number"
                   id="sellingPriceOfDiesel"
                   inputMode="decimal"
-                  value={loadDetails.orderedDate}
+                  value={loadDetails.sellingPriceOfDiesel || ""}
                   onChange={(e: any) =>
                     setLoadDetailsLocally({
                       ...loadDetails,
-                      orderedDate: e.target.value,
+                      sellingPriceOfDiesel: e.target.value,
                     })
                   }
                 />
-                <img
-                  src="/images/rupee.png"
-                  alt=""
-                  className="absolute w-6 top-1 left-1"
-                />
+                <img src="/images/rupee.png" alt="" className="rupee-icon" />
               </div>
             </div>
           </div>
