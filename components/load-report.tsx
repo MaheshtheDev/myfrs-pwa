@@ -85,22 +85,23 @@ export default function LoadReport(props: { loadDetails: LoadDetails }) {
       }
   };
 
-  const shareImage = () => {
+  const shareImage = async () => {
     if (navigator.share) {
-      snapshotCreator();
-      const blob: any = snapshotCreator();
+      await snapshotCreator();
+      const blob: any = await snapshotCreator();
       const data = {
         files: [
           new File([blob], "file.png", {
             type: "image/png",
           }),
-        ]
+        ],
       };
-      navigator.share(data)
+      navigator
+        .share(data)
         .then(() => console.log("Successful share"))
         .catch((error) => console.log("Error sharing", error));
     }
-  }
+  };
 
   useEffect(() => {
     const cDL =
