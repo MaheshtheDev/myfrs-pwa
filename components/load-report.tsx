@@ -92,11 +92,9 @@ export default function LoadReport(props: { loadDetails: LoadDetails }) {
       const data = {
         files: [
           new File([blob], "file.png", {
-            type: blob.type,
+            type: "image/png",
           }),
-        ],
-        title: "Load Results",
-        text: "Load Results photo",
+        ]
       };
       navigator.share(data)
         .then(() => console.log("Successful share"))
