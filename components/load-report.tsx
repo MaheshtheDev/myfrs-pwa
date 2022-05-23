@@ -87,12 +87,18 @@ export default function LoadReport(props: { loadDetails: LoadDetails }) {
 
   const shareImage = () => {
     if (navigator.share) {
-      navigator
-        .share({
-          title: "web.dev",
-          text: "Check out web.dev.",
-          url: "https://web.dev/",
-        })
+      snapshotCreator();
+      const blob: any = snapshotCreator();
+      const data = {
+        files: [
+          new File([blob], "file.png", {
+            type: blob.type,
+          }),
+        ],
+        title: "Load Results",
+        text: "Load Results photo",
+      };
+      navigator.share(data)
         .then(() => console.log("Successful share"))
         .catch((error) => console.log("Error sharing", error));
     }
