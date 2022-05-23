@@ -84,6 +84,20 @@ export default function LoadReport(props: { loadDetails: LoadDetails }) {
           });
       }
   };
+
+  const shareImage = () => {
+    if (navigator.share) {
+      navigator
+        .share({
+          title: "web.dev",
+          text: "Check out web.dev.",
+          url: "https://web.dev/",
+        })
+        .then(() => console.log("Successful share"))
+        .catch((error) => console.log("Error sharing", error));
+    }
+  }
+
   useEffect(() => {
     const cDL =
       Math.round((props.loadDetails.costOfDieselKL / 1000) * 100) / 100;
@@ -143,7 +157,7 @@ export default function LoadReport(props: { loadDetails: LoadDetails }) {
                 {completeLoadDetails.orderedPetrol}
               </span>
             </div>
-            <div>
+            <div className="pt-1">
               Ordered Diesel --{" "}
               <span className="text-white">
                 {completeLoadDetails.orderedDiesel}
@@ -157,7 +171,7 @@ export default function LoadReport(props: { loadDetails: LoadDetails }) {
                 {Number(completeLoadDetails.marginOfPetrol).toFixed(2)} Rs/-
               </span>
             </div>
-            <div>
+            <div className="pt-1">
               Ordered Diesel --{" "}
               <span className="bg-[#C0FF0D] text-black px-2 rounded-full">
                 {Number(completeLoadDetails.marginOfDiesel).toFixed(2)} Rs/-
@@ -166,12 +180,12 @@ export default function LoadReport(props: { loadDetails: LoadDetails }) {
           </div>
         </div>
         <div className="pt-4">
-          <div>Cost Details</div>
+          <div className="font-semibold">Cost Details</div>
           <div className="flex justify-around pt-2">
             <p className="text-[#C4C4C4]">Petrol Cost</p>
             <p>
               {" "}
-              {completeLoadDetails.orderedPetrol} *{" "}
+              {completeLoadDetails.orderedPetrol} ×{" "}
               {completeLoadDetails.costOfPetrolL}
             </p>
             <p>
@@ -187,7 +201,7 @@ export default function LoadReport(props: { loadDetails: LoadDetails }) {
             <p className="text-[#C4C4C4]">Diesel Cost</p>
             <p>
               {" "}
-              {completeLoadDetails.orderedDiesel} *{" "}
+              {completeLoadDetails.orderedDiesel} ×{" "}
               {completeLoadDetails.costOfDieselL}
             </p>
             <p>
@@ -210,12 +224,12 @@ export default function LoadReport(props: { loadDetails: LoadDetails }) {
           </div>
         </div>
         <div>
-          <div>Margin Details</div>
+          <div className="font-semibold">Margin Details</div>
           <div className="flex justify-around pt-2">
             <p className="text-[#C4C4C4]">Petrol Margin</p>
             <p>
               {" "}
-              {completeLoadDetails.orderedPetrol} *{" "}
+              {completeLoadDetails.orderedPetrol} ×{" "}
               {Number(completeLoadDetails.marginOfPetrol).toFixed(2)}
             </p>
             <p>
@@ -231,7 +245,7 @@ export default function LoadReport(props: { loadDetails: LoadDetails }) {
             <p className="text-[#C4C4C4]">Diesel Margin</p>
             <p>
               {" "}
-              {completeLoadDetails.orderedDiesel} *{" "}
+              {completeLoadDetails.orderedDiesel} ×{" "}
               {Number(completeLoadDetails.marginOfDiesel).toFixed(2)}
             </p>
             <p>
@@ -268,6 +282,12 @@ export default function LoadReport(props: { loadDetails: LoadDetails }) {
           Download
         </button>
       </div>
+      <button
+        onClick={shareImage}
+        className="bg-[#C0FF0D]/75 w-full my-2 rounded-md text-black font-semibold py-1"
+      >
+        Share Results
+      </button>
     </div>
   );
 }
