@@ -153,10 +153,9 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
               </div>
             </div>
             <div className="flex justify-between items-center p-2">
-              <label className="text-base">Ordered Date</label>
-              <div className="relative p-0 m-0 w-1/2">
+              <label className="text-base w-1/2">Ordered Date</label>
                 <input
-                  className="input-details"
+                  className="input-details w-1/2"
                   type="date"
                   id="sellingPriceOfDiesel"
                   value={loadDetails.orderedDate}
@@ -167,7 +166,6 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
                     })
                   }
                 />
-              </div>
             </div>
           </div>
           <button

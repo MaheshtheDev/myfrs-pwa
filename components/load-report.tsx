@@ -110,7 +110,13 @@ export default function LoadReport(props: { loadDetails: LoadDetails }) {
       Math.round((props.loadDetails.costOfDieselKL / 1000) * 100) / 100;
     const cPL =
       Math.round((props.loadDetails.costOfPetrolKL / 1000) * 100) / 100;
-    setLoadDate(new Date(props.loadDetails.orderedDate).toLocaleDateString());
+    setLoadDate(
+      new Date(props.loadDetails.orderedDate).toLocaleDateString("en-us", {
+        day: "numeric",
+        year: "numeric",
+        month: "short",
+      })
+    );
     setCompleteLoadDetails({
       orderedPetrol: props.loadDetails.orderedPetrol,
       orderedDiesel: props.loadDetails.orderedDiesel,
