@@ -8,6 +8,8 @@ export default function LoadReport(props: { loadDetails: LoadDetails }) {
     {} as CompleteLoadDetails
   );
 
+  const [loadDate, setLoadDate] = useState(new Date().toDateString());
+
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
   const snapshotCreator = () => {
@@ -108,7 +110,7 @@ export default function LoadReport(props: { loadDetails: LoadDetails }) {
       Math.round((props.loadDetails.costOfDieselKL / 1000) * 100) / 100;
     const cPL =
       Math.round((props.loadDetails.costOfPetrolKL / 1000) * 100) / 100;
-    //setLoadDate(new Date(props.loadDetails.orderedDate).toLocaleDateString());
+    setLoadDate(new Date(props.loadDetails.orderedDate).toLocaleDateString());
     setCompleteLoadDetails({
       orderedPetrol: props.loadDetails.orderedPetrol,
       orderedDiesel: props.loadDetails.orderedDiesel,
@@ -153,7 +155,7 @@ export default function LoadReport(props: { loadDetails: LoadDetails }) {
         className="bg-[#1E1E1E] p-3 rounded-md font-medium text-white"
         ref={(el) => (wrapperRef.current = el)}
       >
-        <div className="flex justify-center">05 Jan 2022 Load Report</div>
+        <div className="flex justify-center">{loadDate} Load Report</div>
         <div className="flex justify-around pt-2">
           <div className="text-[#C4C4C4] text-xs">
             <div>

@@ -21,7 +21,7 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
       <h1 className="text-[#90BF0A] font-bold tracking-wide uppercase text-xl flex justify-center pb-3">
         Load Report
       </h1>
-      
+
       <main className="flex-grow text-white">
         <section className="bg-[#1E1E1E] p-3 rounded-md font-medium">
           <div>
@@ -150,6 +150,23 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
                   }
                 />
                 <img src="/images/rupee.png" alt="" className="rupee-icon" />
+              </div>
+            </div>
+            <div className="flex justify-between items-center p-2">
+              <label className="text-base">Ordered Date</label>
+              <div className="relative p-0 m-0 w-1/2">
+                <input
+                  className="input-details"
+                  type="date"
+                  id="sellingPriceOfDiesel"
+                  value={loadDetails.orderedDate}
+                  onChange={(e: any) =>
+                    setLoadDetailsLocally({
+                      ...loadDetails,
+                      orderedDate: e.target.value,
+                    })
+                  }
+                />
               </div>
             </div>
           </div>
