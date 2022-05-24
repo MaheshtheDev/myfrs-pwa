@@ -5,7 +5,7 @@ export default function LoadCard() {
       <table>
         <tr>
           <td></td>
-          <th>litre's</th>
+          <th>litre&apos;s</th>
           <th>Margin</th>
         </tr>
         <tr>
