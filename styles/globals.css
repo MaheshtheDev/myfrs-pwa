@@ -8,14 +8,29 @@
   .active-link {
     @apply text-[#C0FF0D] px-2 flex flex-col;
   }
+  
   .not-active-link {
     @apply text-[#757575] px-2 flex flex-col;
   }
+  
   .input-details {
     @apply p-1 w-full outline-none pl-8 rounded-full h-full bg-[#C4C4C4] text-black;
   }
+  
   .rupee-icon {
     @apply absolute w-6 top-1 left-1;
+  }
+
+  th, td {
+    @apply p-1;
+  }
+
+  th {
+    @apply font-medium;
+  }
+
+  tr {
+    @apply border-b border-[#2a2121e4] last:border-b-0;
   }
 }
 

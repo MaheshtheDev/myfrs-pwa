@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { CompleteLoadDetails, LoadDetails } from "./types";
+import Image from "next/image";
 import domtoimage from "dom-to-image";
 
 export default function LoadReport(props: { loadDetails: LoadDetails }) {
@@ -154,16 +155,16 @@ export default function LoadReport(props: { loadDetails: LoadDetails }) {
           },
         }}
       />
-      <h1 className="text-[#90BF0A] font-bold tracking-wide uppercase text-xl flex justify-center pb-3">
+      <h1 className="flex justify-center pb-3 text-xl font-bold uppercase tracking-wide text-[#90BF0A]">
         Report Generated
       </h1>
       <div
-        className="bg-[#1E1E1E] p-3 rounded-md font-medium text-white"
+        className="rounded-md bg-[#1E1E1E] p-3 font-medium text-white"
         ref={(el) => (wrapperRef.current = el)}
       >
         <div className="flex justify-center">{loadDate} Load Report</div>
         <div className="flex justify-around pt-2">
-          <div className="text-[#C4C4C4] text-xs">
+          <div className="text-xs text-[#C4C4C4]">
             <div>
               Ordered Petrol --{" "}
               <span className="text-white">
@@ -177,16 +178,16 @@ export default function LoadReport(props: { loadDetails: LoadDetails }) {
               </span>
             </div>
           </div>
-          <div className="text-[#C4C4C4] text-xs">
+          <div className="text-xs text-[#C4C4C4]">
             <div>
               Ordered Petrol --{" "}
-              <span className="bg-[#C0FF0D] text-black px-2 rounded-full">
+              <span className="rounded-full bg-[#C0FF0D] px-2 text-black">
                 {Number(completeLoadDetails.marginOfPetrol).toFixed(2)} Rs/-
               </span>
             </div>
             <div className="pt-1">
               Ordered Diesel --{" "}
-              <span className="bg-[#C0FF0D] text-black px-2 rounded-full">
+              <span className="rounded-full bg-[#C0FF0D] px-2 text-black">
                 {Number(completeLoadDetails.marginOfDiesel).toFixed(2)} Rs/-
               </span>
             </div>
@@ -284,22 +285,14 @@ export default function LoadReport(props: { loadDetails: LoadDetails }) {
           </div>
         </div>
       </div>
-      <div className="flex justify-around mt-2">
-        <button
-          onClick={copyImageFirefox}
-          className="bg-[#C0FF0D]/75 w-1/2 rounded-md text-black font-semibold py-1 mr-2"
-        >
-          Copy to Clipboard
-        </button>
-        <button className="bg-[#C0FF0D]/75 w-1/2 rounded-md text-black font-semibold py-1">
-          Download
-        </button>
-      </div>
       <button
         onClick={shareImage}
-        className="bg-[#C0FF0D]/75 w-full my-2 rounded-md text-black font-semibold py-1"
+        className="my-2 w-full rounded-md bg-[#C0FF0D]/75 py-1 font-semibold text-black"
       >
-        Share Results
+        <div className="flex justify-center">
+          <Image src="/images/share.svg" width={20} height={20} />
+          <p className="px-1">Share</p>
+        </div>
       </button>
     </div>
   );
