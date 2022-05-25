@@ -14,7 +14,11 @@
   }
   
   .input-details {
-    @apply p-1 w-full outline-none pl-8 rounded-full h-full bg-[#C4C4C4] text-black;
+    @apply p-1 w-1/2 outline-none border-0 px-2 flex rounded-full h-full bg-[#C4C4C4] text-black;
+  }
+
+  .input-details > input {
+    @apply bg-[#C4C4C4] outline-none pl-1 rounded-full w-full;
   }
   
   .rupee-icon {

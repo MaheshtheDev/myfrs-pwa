@@ -14,20 +14,22 @@ export default function AddLoad() {
   } as LoadDetails);
 
   const [isReportGenerated, setReportGenerated] = useState(false);
+  const [goBack, setGoBack] = useState(false);
+
   useEffect(() => {
     if (isDetailsUpdated(loadDetails)) {
       setReportGenerated(true);
+      //setGoBack(false);
     }
   });
 
   return (
     <div>
-      {!isReportGenerated ? (
+      {!isReportGenerated || goBack ? (
         <EnterDetails setLoadDetails={setLoadDetails} />
       ) : (
-        <LoadReport loadDetails={loadDetails}/>
+        <LoadReport loadDetails={loadDetails} setGoBack={setGoBack} />
       )}
-      
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { CompleteLoadDetails, LoadDetails } from "./types";
 import Image from "next/image";
 import domtoimage from "dom-to-image";
 
-export default function LoadReport(props: { loadDetails: LoadDetails }) {
+export default function LoadReport(props: { loadDetails: LoadDetails; setGoBack: any }) {
   const [completeLoadDetails, setCompleteLoadDetails] = useState(
     {} as CompleteLoadDetails
   );
@@ -40,54 +40,6 @@ export default function LoadReport(props: { loadDetails: LoadDetails }) {
     });
   };
 
-  const copyImageFirefox = () => {
-    const scale = window.devicePixelRatio;
-    const isSafari = /^((?!chrome|android).)*safari/i.test(
-      navigator?.userAgent
-    );
-    if (wrapperRef.current)
-      if (isSafari) {
-        navigator.clipboard
-          .write([
-            new ClipboardItem({
-              "image/png": new Promise(async (resolve, reject) => {
-                try {
-                  await snapshotCreator();
-                  const blob: any = await snapshotCreator();
-                  resolve(new Blob([blob], { type: "image/png" }));
-                } catch (err) {
-                  reject(err);
-                }
-              }),
-            }),
-          ])
-          .then(() => toast.success("Image copied to clipboard"))
-          .catch((err) =>
-            // Error
-            toast.success(err)
-          );
-      } else {
-        domtoimage
-          .toBlob(wrapperRef.current, {
-            height: 650,
-            width: 750,
-            style: {
-              transform: "scale(" + scale + ")",
-              transformOrigin: "top left",
-              width: "500px",
-              height: "500px",
-            },
-          })
-          .then(async (data: any) => {
-            data.arrayBuffer();
-            navigator.clipboard.write([
-              new ClipboardItem({ [data.type]: data }),
-            ]);
-            toast.success("Image copied to clipboard");
-          });
-      }
-  };
-
   const shareImage = async () => {
     if (navigator.share) {
       await snapshotCreator();
@@ -104,6 +56,10 @@ export default function LoadReport(props: { loadDetails: LoadDetails }) {
         .then(() => console.log("Successful share"))
         .catch((error) => console.log("Error sharing", error));
     }
+  };
+
+  const goBack = () => {
+    props.setGoBack(true);
   };
 
   useEffect(() => {
@@ -155,6 +111,13 @@ export default function LoadReport(props: { loadDetails: LoadDetails }) {
           },
         }}
       />
+      {/*<button
+        onClick={goBack}
+        className="flex items-center text-sm text-[#90BF0A]"
+      >
+        <img src="/images/back-arrow.svg" alt="" />
+        Back
+      </button>*/}
       <h1 className="flex justify-center pb-3 text-xl font-bold uppercase tracking-wide text-[#90BF0A]">
         Report Generated
       </h1>

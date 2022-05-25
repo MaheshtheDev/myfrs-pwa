@@ -18,19 +18,19 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
 
   return (
     <div>
-      <h1 className="text-[#90BF0A] font-bold tracking-wide uppercase text-xl flex justify-center pb-3">
+      <h1 className="flex justify-center pb-3 text-xl font-bold uppercase tracking-wide text-[#90BF0A]">
         Load Report
       </h1>
 
       <main className="flex-grow text-white">
-        <section className="bg-[#1E1E1E] p-3 rounded-md font-medium">
+        <section className="rounded-md bg-[#1E1E1E] p-3 font-medium">
           <div>
-            <p className="text-[#C1FF12] font-semibold pb-2">Load Details</p>
-            <div className="flex justify-between items-center p-2">
+            <p className="pb-2 font-semibold text-[#C1FF12]">Load Details</p>
+            <div className="flex items-center justify-between p-2">
               <label className="text-base">Ordered Petrol</label>
-              <div className="relative p-0 m-0 w-1/2">
+              <div className="input-details">
                 <input
-                  className="input-details"
+                  className="w-full rounded-full bg-[#C4C4C4] pl-1 outline-none"
                   type="number"
                   id="orderedPetrol"
                   inputMode="decimal"
@@ -42,14 +42,14 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
                     })
                   }
                 />
-                <img src="/images/rupee.png" alt="" className="rupee-icon" />
+                ltrs
               </div>
             </div>
-            <div className="flex justify-between items-center p-2">
+            <div className="flex items-center justify-between p-2">
               <label className="text-base">Ordered Diesel</label>
-              <div className="relative p-0 m-0 w-1/2">
+              <div className="input-details">
                 <input
-                  className="input-details"
+                  className="w-full rounded-full bg-[#C4C4C4] pl-1 outline-none"
                   type="number"
                   id="orderedDiesel"
                   inputMode="decimal"
@@ -61,19 +61,20 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
                     })
                   }
                 />
-                <img src="/images/rupee.png" alt="" className="rupee-icon" />
+                ltrs
               </div>
             </div>
           </div>
           <div className="pb-2">
-            <p className="text-[#C1FF12] font-semibold py-2">Price Details</p>
-            <div className="flex justify-between items-center p-2">
+            <p className="py-2 font-semibold text-[#C1FF12]">Price Details</p>
+            <div className="flex items-center justify-between p-2">
               <label className="text-base">
                 Petrol Cost <span className="text-sm"> (per KL)</span>
               </label>
-              <div className="relative p-0 m-0 w-1/2">
+              <div className="input-details">
+                ₹
                 <input
-                  className="input-details"
+                  className="w-full rounded-full bg-[#C4C4C4] pl-1 outline-none"
                   type="number"
                   id="costOfPetrolKL"
                   inputMode="decimal"
@@ -85,16 +86,15 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
                     })
                   }
                 />
-                <img src="/images/rupee.png" alt="" className="rupee-icon" />
               </div>
             </div>
-            <div className="flex justify-between items-center p-2">
+            <div className="flex items-center justify-between p-2">
               <label className="text-base">
                 Diesel Cost<span className="text-sm"> (per KL)</span>
               </label>
-              <div className="relative p-0 m-0 w-1/2">
+              <div className="input-details">
+                ₹
                 <input
-                  className="input-details"
                   type="number"
                   id="costOfDieselKL"
                   inputMode="decimal"
@@ -106,16 +106,15 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
                     })
                   }
                 />
-                <img src="/images/rupee.png" alt="" className="rupee-icon" />
               </div>
             </div>
-            <div className="flex justify-between items-center p-2">
-              <label className="text-base w-fit">
+            <div className="flex items-center justify-between p-2">
+              <label className="w-fit text-base">
                 Petrol Selling Price<div className="text-sm"> (Today)</div>
               </label>
-              <div className="relative p-0 m-0 w-1/2">
+              <div className="input-details">
+                ₹
                 <input
-                  className="input-details"
                   type="number"
                   id="sellingPriceOfPetrol"
                   inputMode="decimal"
@@ -127,17 +126,16 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
                     })
                   }
                 />
-                <img src="/images/rupee.png" alt="" className="rupee-icon" />
               </div>
             </div>
-            <div className="flex justify-between items-center p-2">
+            <div className="flex items-center justify-between p-2">
               <label className="text-base">
                 Diesel Selling Price
                 <div className="text-sm"> (Today)</div>
               </label>
-              <div className="relative p-0 m-0 w-1/2">
+              <div className="input-details">
+                ₹
                 <input
-                  className="input-details"
                   type="number"
                   id="sellingPriceOfDiesel"
                   inputMode="decimal"
@@ -149,28 +147,27 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
                     })
                   }
                 />
-                <img src="/images/rupee.png" alt="" className="rupee-icon" />
               </div>
             </div>
-            <div className="flex justify-between items-center p-2">
-              <label className="text-base w-1/2">Ordered Date</label>
-                <input
-                  className="input-details w-1/2"
-                  type="date"
-                  id="sellingPriceOfDiesel"
-                  value={loadDetails.orderedDate}
-                  onChange={(e: any) =>
-                    setLoadDetailsLocally({
-                      ...loadDetails,
-                      orderedDate: e.target.value,
-                    })
-                  }
-                />
+            <div className="flex items-center justify-between p-2">
+              <label className="w-1/2 text-base">Ordered Date</label>
+              <input
+                className="input-details w-1/2"
+                type="date"
+                id="sellingPriceOfDiesel"
+                value={loadDetails.orderedDate}
+                onChange={(e: any) =>
+                  setLoadDetailsLocally({
+                    ...loadDetails,
+                    orderedDate: e.target.value,
+                  })
+                }
+              />
             </div>
           </div>
           <button
             onClick={onSubmit}
-            className="bg-[#C0FF0D]/75 w-full rounded-md text-black font-semibold py-1"
+            className="w-full rounded-md bg-[#C0FF0D]/75 py-1 font-semibold text-black"
           >
             Generate Report
           </button>
