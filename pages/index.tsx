@@ -1,14 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import LoadCard from "../components/load-card";
-import styles from "../styles/Home.module.css";
+import Layout from "./layout";
 
 const Home: NextPage = () => {
-  const router = useRouter();
-  
   return (
     <div className="font-Montserrat text-white">
       <Head>
