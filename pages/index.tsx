@@ -1,10 +1,16 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useRouter } from "next/router";
+import useSWR from "swr";
 import LoadCard from "../components/load-card";
-import Layout from "./layout";
+import { CompleteLoadDetails } from "../components/types";
+import fetcher from "../lib/fetcher";
 
-const Home: NextPage = () => {
+export default function Home() {
+  //const completeLoadDetails: CompleteLoadDetails;
+  const { data: completeLoadDetails, error } = useSWR<CompleteLoadDetails[]>('/api/loads', fetcher);
+  console.log(completeLoadDetails);
+
+  if(!completeLoadDetails) return "Loading...";
   return (
     <div className="font-Montserrat text-white">
       <Head>
@@ -15,9 +21,9 @@ const Home: NextPage = () => {
       </Head>
       <p className="font-medium text-[#90BF0A] pb-1">Recent Loads</p>
       <section className="flex overflow-x-auto whitespace-nowrap">
-        <LoadCard />
-        <LoadCard />
-        <LoadCard />
+        {completeLoadDetails.map((loadDetails: any) => (
+        <LoadCard loadDetails = {loadDetails} key={loadDetails.id}/>
+        ))}
         <div className="flex items-center rounded-md bg-[#1E1E1E] p-2">
           View All
         </div>
@@ -26,5 +32,3 @@ const Home: NextPage = () => {
     </div>
   );
 };
-
-export default Home;
