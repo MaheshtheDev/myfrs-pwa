@@ -9,3 +9,29 @@ datasource db {
   shadowDatabaseUrl    = env("SHADOW_DATABASE_URL")
   referentialIntegrity = "prisma"
 }
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String?
+  email     String   @unique
+  password  String?
+  createdAt DateTime @default(now())
+  tenantId  String   @default("")
+  isDeleted Boolean  @default(false)
+}
+
+model FuelLoads {
+  id                   Int      @id @default(autoincrement())
+  orderedPetrol        Int
+  orderedDiesel        Int
+  costOfPetrolL        Float
+  costOfDieselL        Float
+  sellingPriceOfPetrol Float
+  sellingPriceOfDiesel Float
+  marginOfPetrol       Float
+  marginOfDiesel       Float
+  tenantId             String
+  orderedOn            DateTime
+  createdAt            DateTime @default(now())
+  isDeleted            Boolean  @default(false)
+}
