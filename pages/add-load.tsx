@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import EnterDetails from "../components/enter-details";
 import toast, { Toaster } from "react-hot-toast";
-import LoadReport from "../components/load-report";
 import { CompleteLoadDetails, LoadDetails } from "../components/types";
 import domtoimage from "dom-to-image";
 import Image from "next/image";
