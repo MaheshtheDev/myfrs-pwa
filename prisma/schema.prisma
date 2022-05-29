@@ -20,7 +20,7 @@ model User {
   isDeleted Boolean  @default(false)
 }
 
-model FuelLoads {
+model FuelLoad {
   id                   Int      @id @default(autoincrement())
   orderedPetrol        Int
   orderedDiesel        Int
