@@ -9,7 +9,7 @@ export default async function handler(req, res) {
   switch (method) {
     case "GET":
       try {
-        const loads = await prisma.FuelLoads.findMany({
+        const loads = await prisma.FuelLoad.findMany({
           orderBy: {
             createdAt: "desc",
           },
@@ -21,14 +21,14 @@ export default async function handler(req, res) {
         console.error("Error is ", e);
         res
           .status(500)
-          .json({ error: e});
+          .json({ error: "Error while fetching fuel loads details."});
       }
       break;
     case "POST":
       try {
         const { body } = req;
         if (body) {
-          const load = await prisma.fuelLoads.create({
+          const load = await prisma.FuelLoad.create({
             data: {
               orderedPetrol: body.orderedPetrol,
               orderedDiesel: body.orderedDiesel,
