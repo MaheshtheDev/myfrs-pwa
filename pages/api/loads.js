@@ -21,7 +21,7 @@ export default async function handler(req, res) {
         console.error("Error is ", e);
         res
           .status(500)
-          .json({ error: "Error while fetching the fuel stations" });
+          .json({ error: e});
       }
       break;
     case "POST":
