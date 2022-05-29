@@ -1,7 +1,20 @@
-export default function LoadCard() {
+import { CompleteLoadDetails } from "./types";
+
+export default function LoadCard(props: {loadDetails: CompleteLoadDetails}) {
+  var orderedDate;
+  if(props.loadDetails){
+    orderedDate = new Date(props.loadDetails.orderedOn).toLocaleDateString(
+      "en-in",
+      {
+        day: "numeric",
+        year: "numeric",
+        month: "short",
+      }
+    );
+  }
   return (
     <div className="mr-2 w-fit rounded-md bg-[#1E1E1E] p-2">
-      <div className="font-semibold">12 Oct 2021</div>
+      <div className="font-semibold">{orderedDate}</div>
       <table>
         <tbody>
           <tr>
@@ -11,19 +24,19 @@ export default function LoadCard() {
           </tr>
           <tr>
             <th>Petrol</th>
-            <td>4000</td>
+            <td>{props.loadDetails.orderedPetrol}</td>
             <td>
               <div className="rounded-full bg-[#C0FF0D] px-2 text-black">
-                2.34/-
+                {Number(props.loadDetails.marginOfPetrol).toFixed(2)} /-
               </div>
             </td>
           </tr>
           <tr>
             <th>Diesel</th>
-            <td>4000</td>
+            <td>{props.loadDetails.orderedDiesel}</td>
             <td>
               <div className="rounded-full bg-[#C0FF0D] px-2 text-black">
-                2.34/-
+                {Number(props.loadDetails.marginOfDiesel).toFixed(2)} /-
               </div>
             </td>
           </tr>

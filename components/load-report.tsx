@@ -4,7 +4,9 @@ import { CompleteLoadDetails, LoadDetails } from "./types";
 import Image from "next/image";
 import domtoimage from "dom-to-image";
 
-export default function LoadReport(props: { loadDetails: LoadDetails; setGoBack: any }) {
+export default function LoadReport(props: {
+  loadDetails: LoadDetails;
+}) {
   const [completeLoadDetails, setCompleteLoadDetails] = useState(
     {} as CompleteLoadDetails
   );
@@ -58,10 +60,6 @@ export default function LoadReport(props: { loadDetails: LoadDetails; setGoBack:
     }
   };
 
-  const goBack = () => {
-    props.setGoBack(true);
-  };
-
   useEffect(() => {
     const cDL =
       Math.round((props.loadDetails.costOfDieselKL / 1000) * 100) / 100;
@@ -89,6 +87,7 @@ export default function LoadReport(props: { loadDetails: LoadDetails; setGoBack:
         props.loadDetails.orderedPetrol * cPL +
         props.loadDetails.orderedDiesel * cDL,
     });
+    
     toast.success("Report Generated!");
   }, [props]);
 

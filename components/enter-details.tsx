@@ -1,8 +1,8 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { LoadDetails } from "./types";
 
 
-export default function EnterDetails(props: { setLoadDetails: any }) {
+export default function EnterDetails(props: { setLoadDetails: any, setHideEnterDetails: any }) {
   const [loadDetails, setLoadDetailsLocally] = useState({
     orderedDate: new Date().toISOString().split("T")[0],
     orderedPetrol: 4000,
@@ -14,6 +14,7 @@ export default function EnterDetails(props: { setLoadDetails: any }) {
   } as LoadDetails);
   const onSubmit = (event: any) => {
     props.setLoadDetails(loadDetails);
+    props.setHideEnterDetails(true);
   };
 
   return (

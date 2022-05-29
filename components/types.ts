@@ -9,6 +9,7 @@ export interface LoadDetails {
 }
 
 export interface CompleteLoadDetails {
+  id?: number;
   orderedPetrol: number;
   orderedDiesel: number;
   costOfPetrolL: number;
@@ -18,4 +19,5 @@ export interface CompleteLoadDetails {
   marginOfPetrol: number;
   marginOfDiesel: number;
   totalCost: number;
+  orderedOn: Date;
 }
