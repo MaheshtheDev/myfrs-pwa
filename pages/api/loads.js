@@ -9,13 +9,12 @@ export default async function handler(req, res) {
   switch (method) {
     case "GET":
       try {
-        //const loads = await prisma.FuelLoads.findMany({
-        //  orderBy: {
-        //    createdAt: "desc",
-        //  },
-        //  take: 2,
-        //});
-        const loads = await prisma.user.findMany();
+        const loads = await prisma.FuelLoads.findMany({
+          orderBy: {
+            createdAt: "desc",
+          },
+          take: 2,
+        });
         res.status(200).json(loads);
       } catch (e) {
         logtail.error(e);
