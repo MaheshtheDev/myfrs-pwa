@@ -1,4 +1,7 @@
 import prisma from "../../lib/prisma";
+const { Logtail } = require("@logtail/node");
+const logtail = new Logtail("dvFUmMGPbwi5Q9zvdqjEEKjT");
+
 
 export default async function handler(req, res) {
   const { method } = req;
@@ -6,7 +9,7 @@ export default async function handler(req, res) {
   switch (method) {
     case "GET":
       try {
-        const loads = await prisma.fuelLoads.findMany({
+        const loads = await prisma.fueLoads.findMany({
           orderBy: {
             createdAt: "desc",
           },
@@ -14,6 +17,7 @@ export default async function handler(req, res) {
         });
         res.status(200).json(loads);
       } catch (e) {
+        logtail.error(e);
         console.error("Error is ", e);
         res
           .status(500)
@@ -41,6 +45,7 @@ export default async function handler(req, res) {
           res.status(200).json(load);
         }
       } catch (e) {
+        logtail.error(e);
         console.error("Error is ", e);
         res.status(500).json({ error: "Error while adding new report" });
       }
