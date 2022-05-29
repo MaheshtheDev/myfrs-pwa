@@ -11,7 +11,6 @@ export default function Home() {
   console.log(completeLoadDetails);
 
   if(!completeLoadDetails) return "Loading...";
-  
   return (
     <div className="font-Montserrat text-white">
       <Head>
@@ -22,7 +21,7 @@ export default function Home() {
       </Head>
       <p className="font-medium text-[#90BF0A] pb-1">Recent Loads</p>
       <section className="flex overflow-x-auto whitespace-nowrap">
-        { completeLoadDetails != undefined && completeLoadDetails.map((loadDetails: any) => (
+        {completeLoadDetails.map((loadDetails: any) => (
         <LoadCard loadDetails = {loadDetails} key={loadDetails.id}/>
         ))}
         <div className="flex items-center rounded-md bg-[#1E1E1E] p-2">
