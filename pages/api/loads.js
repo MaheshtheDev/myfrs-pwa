@@ -9,7 +9,7 @@ export default async function handler(req, res) {
   switch (method) {
     case "GET":
       try {
-        const loads = await prisma.FuelLoads.findMany({
+        const loads = await prisma.FuelLoad.findMany({
           orderBy: {
             createdAt: "desc",
           },
@@ -28,7 +28,7 @@ export default async function handler(req, res) {
       try {
         const { body } = req;
         if (body) {
-          const load = await prisma.FuelLoads.create({
+          const load = await prisma.FuelLoad.create({
             data: {
               orderedPetrol: body.orderedPetrol,
               orderedDiesel: body.orderedDiesel,
