@@ -5,7 +5,7 @@ import { TDSPaymentsDTO, TDSPayments } from "../components/types";
 import Image from "next/image";
 import { useState } from "react";
 
-export default function stats() {
+export default function Stats() {
   const [tdsPayment, setTdsPayment] = useState({} as TDSPaymentsDTO);
 
   const onSubmit = () => {
