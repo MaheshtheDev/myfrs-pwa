@@ -36,3 +36,13 @@ model FuelLoadDetails {
   createdAt            DateTime @default(now())
   isDeleted            Boolean  @default(false)
 }
+
+model TDSPayments {
+  id                   Int      @id @default(autoincrement())
+  amount               Float
+  paidMonth            String
+  paidOn               DateTime
+  tenantId             String
+  createdAt            DateTime @default(now())
+  isDeleted            Boolean  @default(false)
+}

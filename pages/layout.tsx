@@ -43,12 +43,6 @@ export default function Layout({ children }: LayoutProps) {
           <link rel="icon" href="/logo.svg" />
           <meta name="theme-color" content="#000000" />
         </Head>
-        <div className="flex justify-between mx-4 mt-4 ">
-          <h1 className="text-2xl font-semibold text-[#C0FF0D]">myFRS</h1>
-          <button onClick={() => signOut()} className="flex items-end pb-1">
-            <Image src="/images/user.svg" height={25} width={25} />
-          </button>
-        </div>
         <main className="flex-grow p-4">{children}</main>
         <footer className="bottom-0 w-screen bg-[#161616] p-4">
           <nav className="flex list-none justify-around pb-4 text-xs font-medium">
@@ -98,7 +92,15 @@ export default function Layout({ children }: LayoutProps) {
                     : "not-active-link"
                 }
               >
-                <Image src="/images/stats.svg" height={30} width={30} />
+                <Image
+                  src={
+                    router.pathname == "/stats"
+                      ? "/images/stats-active.svg"
+                      : "/images/stats.svg"
+                  }
+                  height={30}
+                  width={30}
+                />
                 <p className="pt-1">Stats</p>
               </li>
             </Link>
@@ -112,8 +114,8 @@ export default function Layout({ children }: LayoutProps) {
         <h1 className="text-center text-3xl font-semibold text-[#C0FF0D]">
           myFRS
         </h1>
-        <div className="mx-10 my-2 rounded-md bg-[#1E1E1E] p-5 text-center">
-          <p className="pb-4 text-xl font-semibold text-[#90BF0A]">Sign In</p>
+        <div className="mx-2 my-2 rounded-md bg-[#1E1E1E] p-5 text-center">
+          <p className="pb-4 text-xl font-semibold text-[#90BF0A]">Sign In / Sign Up</p>
           <form
             className=" flex flex-col justify-center text-black"
             onSubmit={onSignIn}
@@ -144,6 +146,7 @@ export default function Layout({ children }: LayoutProps) {
               <span className="pr-2 text-black">Login</span>
             </button>
           </form>
+          <p className="py-2 float-left text-xs"><span className="brightness-50">Don't have a account?</span> <span className="text-yellow-500">Contact us!</span></p>
         </div>
         <div className="py-2 text-center text-[#90BF0A]">
           <span className="text-[#757575]">created by </span>

@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import EnterDetails from "../components/enter-details";
 import toast, { Toaster } from "react-hot-toast";
 import { CompleteLoadDetails, LoadDetails } from "../components/types";
 import domtoimage from "dom-to-image";
 import Image from "next/image";
+import { signOut } from "next-auth/react";
 
 export default function AddLoad() {
   const [loadDetails, setLoadDetailsLocally] = useState({
@@ -121,9 +121,14 @@ export default function AddLoad() {
   if (!hideEnterDetails) {
     return (
       <div>
-        <h1 className="flex justify-center pb-3 text-xl font-bold uppercase tracking-wide text-[#90BF0A]">
-          Load Report
-        </h1>
+        <div className="flex justify-between">
+          <h1 className="pb-3 text-xl font-bold uppercase tracking-wide text-[#90BF0A]">
+            Load Report
+          </h1>
+          <button onClick={() => signOut()} className="pb-1">
+            <Image src="/images/user.svg" height={25} width={25} />
+          </button>
+        </div>
 
         <main className="flex-grow text-white">
           <section className="rounded-md bg-[#1E1E1E] p-3 font-medium">
@@ -257,7 +262,7 @@ export default function AddLoad() {
                 <input
                   className="input-details w-1/2"
                   type="date"
-                  id="sellingPriceOfDiesel"
+                  id="orderedDate"
                   value={loadDetails.orderedDate}
                   onChange={(e: any) =>
                     setLoadDetailsLocally({
