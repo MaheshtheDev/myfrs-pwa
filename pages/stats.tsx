@@ -30,7 +30,7 @@ export default function Stats() {
           },
         }}
       />
-      <div className="flex justify-between ">
+      <div className="flex justify-between">
         <h1 className="pb-3 text-xl font-bold uppercase tracking-wide text-[#90BF0A]">
           Add TDS Report
         </h1>
@@ -40,7 +40,7 @@ export default function Stats() {
       </div>
       <section className="rounded-md bg-[#1E1E1E] p-3 font-medium text-white">
         <div>
-          <div className="flex items-center justify-between py-2">
+          <div className="flex items-center justify-between py-1">
             <label className="text-base">Paid Month</label>
             <div className="input-details">
               <input
@@ -57,7 +57,7 @@ export default function Stats() {
               />
             </div>
           </div>
-          <div className="flex items-center justify-between py-2">
+          <div className="flex items-center justify-between py-1">
             <label className="text-base">Amount Paid</label>
             <div className="input-details py-[5px]">
               <input
@@ -75,7 +75,7 @@ export default function Stats() {
               ₹
             </div>
           </div>
-          <div className="flex items-center justify-between py-2">
+          <div className="flex items-center justify-between py-1">
             <label className="text-base">Paid On</label>
             <div className="input-details">
               <input
