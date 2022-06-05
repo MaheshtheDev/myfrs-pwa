@@ -260,7 +260,7 @@ export default function AddLoad() {
               <div className="flex items-center justify-between p-2">
                 <label className="w-1/2 text-base">Ordered Date</label>
                 <input
-                  className="input-details w-1/2"
+                  className="input-details"
                   type="date"
                   id="orderedDate"
                   value={loadDetails.orderedDate}
