@@ -146,7 +146,7 @@ export default function Layout({ children }: LayoutProps) {
               <span className="pr-2 text-black">Login</span>
             </button>
           </form>
-          <p className="py-2 float-left text-xs"><span className="brightness-50">Don't have a account?</span> <span className="text-yellow-500">Contact us!</span></p>
+          <p className="py-2 float-left text-xs"><span className="brightness-50">Don&apos;t have a account?</span> <span className="text-yellow-500">Contact us!</span></p>
         </div>
         <div className="py-2 text-center text-[#90BF0A]">
           <span className="text-[#757575]">created by </span>
