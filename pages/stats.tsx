@@ -59,7 +59,7 @@ export default function Stats() {
           </div>
           <div className="flex items-center justify-between py-2">
             <label className="text-base">Amount Paid</label>
-            <div className="input-details">
+            <div className="input-details py-[5px]">
               <input
                 type="number"
                 id="amount"
