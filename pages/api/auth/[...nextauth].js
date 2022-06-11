@@ -23,8 +23,6 @@ export default NextAuth({
             password: credentials.password,
           },
         });
-        const result = await prisma.queryRaw`SELECT name FROM dev.sqlite_master WHERE type = "table";`
-        console.log(result);
         if (user) {
           console.log("User is authorized");
           return user;
