@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   switch (method) {
     case "GET":
       try {
-        const fuelStations = await prisma.User.findMany();
+        const fuelStations = await prisma.users.findMany();
         res.status(200).json(fuelStations);
       } catch (e) {
         console.error("Error is ", e);

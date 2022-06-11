@@ -21,3 +21,17 @@ export interface CompleteLoadDetails {
   totalCost: number;
   orderedOn: Date;
 }
+
+export interface TDSPaymentsDTO {
+  id?: number;
+  amount: number;
+  paidOn: string;
+  paidMonth: string;
+}
+
+export interface TDSPayments {
+  id?: number;
+  amount: number;
+  paidOn: Date;
+  paidMonth: string;
+}

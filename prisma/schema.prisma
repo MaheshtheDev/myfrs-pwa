@@ -10,7 +10,8 @@ datasource db {
   referentialIntegrity = "prisma"
 }
 
-model User {
+
+model users {
   id        Int      @id @default(autoincrement())
   name      String?
   email     String   @unique
@@ -20,7 +21,7 @@ model User {
   isDeleted Boolean  @default(false)
 }
 
-model FuelLoads {
+model FuelLoadDetails {
   id                   Int      @id @default(autoincrement())
   orderedPetrol        Int
   orderedDiesel        Int
@@ -32,6 +33,16 @@ model FuelLoads {
   marginOfDiesel       Float
   tenantId             String
   orderedOn            DateTime
+  createdAt            DateTime @default(now())
+  isDeleted            Boolean  @default(false)
+}
+
+model TDSPayments {
+  id                   Int      @id @default(autoincrement())
+  amount               Float
+  paidMonth            String
+  paidOn               DateTime
+  tenantId             String
   createdAt            DateTime @default(now())
   isDeleted            Boolean  @default(false)
 }

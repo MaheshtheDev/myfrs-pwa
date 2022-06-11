@@ -17,7 +17,7 @@ export default NextAuth({
       },
 
       authorize(credentials, req) {
-        const user = prisma.User.findFirst({
+        const user = prisma.users.findFirst({
           where: {
             email: credentials.email,
             password: credentials.password,
