@@ -28,5 +28,12 @@
             "sizes": "512x512",
             "type": "image/png"
         }
+    ],
+    "screenshots": [
+        {
+            "src": "/first-page.png",
+            "type": "image/png",
+            "sizes": "540x720"
+        }
     ]
 }
