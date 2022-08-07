@@ -20,7 +20,7 @@ export default function Home() {
       <Head>
         <title>myFRS - Home</title>
         <meta name="description" content="my FRS app" />
-        <link rel="icon" href="/logo.svg" />
+        <link rel="icon" href="/icon-256x256.png" />
         <meta name="theme-color" content="#000000" />
       </Head>
       <div className="flex justify-between">
