@@ -6,6 +6,14 @@
 
 myFRS is a Progressive Web Application built with TypeScript and Next.js.
 
+<img width="200" alt="image" src="https://github.com/MaheshtheDev/myfrs-pwa/assets/38828053/005e7f88-0b57-4cd8-87f5-7aa5b994cf9d">
+
+<img width="200" alt="image" src="https://github.com/MaheshtheDev/myfrs-pwa/assets/38828053/897d47d2-4f40-49e6-bfd1-3f4852658a8e">
+
+<img width="200" alt="image" src="https://github.com/MaheshtheDev/myfrs-pwa/assets/38828053/6569989d-5168-428b-8b86-92ac6e745160">
+
+<img width="200" alt="image" src="https://github.com/MaheshtheDev/myfrs-pwa/assets/38828053/7e6bde11-74fc-4f26-b386-d03693315deb">
+
 ## Features
 
 - Create, update, and delete fuel loads
