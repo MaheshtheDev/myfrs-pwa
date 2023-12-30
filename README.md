@@ -6,6 +6,8 @@
 
 myFRS is a Progressive Web Application built with TypeScript and Next.js.
 
+## Screenshots
+
 <img width="200" alt="image" src="https://github.com/MaheshtheDev/myfrs-pwa/assets/38828053/005e7f88-0b57-4cd8-87f5-7aa5b994cf9d">
 
 <img width="200" alt="image" src="https://github.com/MaheshtheDev/myfrs-pwa/assets/38828053/897d47d2-4f40-49e6-bfd1-3f4852658a8e">
